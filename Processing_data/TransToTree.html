@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function gerRandom(start, end) {
+            return Math.floor(Math.random() * (end - start + 1) + start);
+        }
+        function getName(len) {
+            let str = ''
+            for (var i = 0; i < len; i++) {
+                str += String.fromCharCode(gerRandom(65, 90))
+            }
+            return str
+        }
+        function genData(count) {
+            let arr = []
+            for (var i = 0; i < count; i++) {
+                let obj = {
+                    id: i,
+                    name: getName(4),
+                    pid: i == 0 ? null : gerRandom(0, i - 1)
+                }
+                arr.push(obj)
+            }
+            return arr
+        }
+        const list = genData(20)
+        console.log(list)
+
+        // 方法一:用Map
+        function getTree(arr = []) {
+            const map = new Map()
+            arr.forEach(item => map.set(item.id, item))
+            arr.forEach(item => {
+                if (map.has(item.pid)) {
+                    const p = map.get(item.pid)
+                    if (!p.children) p.children = []
+                    p.children.push(item)
+                }
+            })
+            return map.get(0)
+        }
+        console.log(getTree(list));
+
+        // 方法二: 递归
+        // function treeData(list, parentID) {
+        //     return list.filter(obj => {
+        //         if (obj.pid === parentID) {
+        //             const children = treeData(list, obj.id)
+        //             if (children.length) {
+        //                 obj.children = children
+        //             }
+        //             return true
+        //         }
+        //     })
+        // }
+        // console.log(treeData(list, null))
+    </script>
+</body>
+
+</html>
