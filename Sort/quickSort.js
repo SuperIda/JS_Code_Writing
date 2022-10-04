@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <script>
-        // 快速排序
+// 快速排序
         Array.prototype.quickSort = function () {
             const rec = (arr = []) => {
                 if (arr.length <= 1) return arr
@@ -35,7 +23,3 @@
         const arr = [3, 7, 9, 30, 60, 2]
         arr.quickSort()
         console.log(arr)
-    </script>
-</body>
-
-</html>
