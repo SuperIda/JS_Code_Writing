@@ -88,7 +88,7 @@ function deepClone3(originValue, map = new WeakMap()) {
   if (originValue instanceof Map) return new Map([...originValue]);
   // 判断如果是Symbol的value, 那么创建一个新的Symbol
   if (originValue instanceof Symbol) return new Symbol(originValue);
-  // 判断如果是函数类型, 那么直接使用同一个函数
+  // 判断如果是函数类型, 那么直接使用同一个函数(也可以用bind拷贝一份)
   if (originValue instanceof Function) return originValue;
   // 判断如果是日期类型, 那么创建一个新日期
   if (originValue instanceof Date) return new Date(originValue);

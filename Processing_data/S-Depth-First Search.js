@@ -2,7 +2,7 @@
 //! deepFirstSearch接受两个参数，
 // 第一个参数是需要遍历的节点，第二个是节点所存储的数组，并且返回遍历完之后的数组，
 // 该数组的元素顺序就是遍历顺序
-function DFS(node, nodeList) {
+function DFS(node, nodeList=[]) {
   if (node) {
     nodeList.push(node.val);
     if (node.children) {
@@ -51,5 +51,5 @@ const tree = {
   ],
 };
 
-console.log(DFS(tree, []));
+console.log(DFS(tree, []));//1,2,3,5,7,8,6,4
 console.log(DFS2(tree));
