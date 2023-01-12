@@ -35,4 +35,5 @@ function formatNumber2(num) {
   }
   return `${str.slice(0, len).match(/\d{3}/g).join(",")}${rest}`;
 }
+
 console.log(formatNumber2(10000.55));

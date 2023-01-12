@@ -74,7 +74,6 @@ function deepClone2(originValue) {
     // const newSKey = Symbol(sKey.description)
     newValue[sKey] = deepClone2(originValue[sKey]);
   }
-
   return newValue;
 }
 
@@ -100,9 +99,9 @@ function deepClone3(originValue, map = new WeakMap()) {
   if (map.has(originValue)) return map.get(originValue);
   // 判断传入的对象是数组, 还是对象
   const newValue = Array.isArray(originValue) ? [] : {};
-  //
+  // 
   map.set(originValue, newObject);
-  //
+  // 
   for (const key in originValue) {
     newValue[key] = deepClone3(originValue[key], map);
   }
