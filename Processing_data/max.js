@@ -20,4 +20,4 @@ function getMax(array){
   return result[result.length-1];
 }
 
-// console.log(getMax(array));
+console.log(getMax(array));
