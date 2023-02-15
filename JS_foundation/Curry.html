@@ -21,20 +21,21 @@
       //         }
       //     }
       // }
-      // //!----------------------------------Plan B : (并不严谨,目前我找不到解决this指向的办法,可能是我太笨,以后再看)
-      // //   function curry(fn, ...args) {
-      // //     return fn.length <= args.length ? fn.apply(null, args) : curry.bind(this, fn, ...args)
-      // //   }
-      // //----------------------------------测试用例一:原函数不需要改变this指向(A与B均能通过)
+
+      //!----------------------------------Plan B : (并不严谨,目前我找不到解决this指向的办法,可能是我太笨,以后再看)
+      //   function curry(fn, ...args) {
+      //     return fn.length <= args.length ? fn.apply(null, args) : curry.bind(this, fn, ...args)
+      //   }
+      //----------------------------------测试用例一:原函数不需要改变this指向(A与B均能通过)
       // function add(a, b, c) {
-      //     return [a + b + c, this]
+      //   return [a + b + c, this];
       // }
-      // //   console.log(add(1, 2, 3))
-      // //   const ca = curry(add)
-      // //   console.log(ca(1)(2)(3))
-      // //   console.log(ca(1, 2)(3))
-      // //   console.log(ca(1, 2, 3))
-      // //----------------------------------测试用例二:原函数需要改变this指向(B无法通过)
+      //   console.log(add(1, 2, 3))
+      //   const ca = curry(add)
+      //   console.log(ca(1)(2)(3))
+      //   console.log(ca(1, 2)(3))
+      //   console.log(ca(1, 2, 3))
+      //----------------------------------测试用例二:原函数需要改变this指向(B无法通过)
       // console.log(add.call({}, 1, 2, 3))
       // const ca = curry(add)
       // console.log(ca.call({}, 1, 2, 3))
