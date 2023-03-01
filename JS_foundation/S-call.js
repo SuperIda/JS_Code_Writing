@@ -1,3 +1,29 @@
+// call() 方法使用一个指定的 this 值和单独给出的一个或多个参数来调用一个函数。
+Function.prototype._call = function (ctx, ...args) {
+  // 如果不为空，则需要进行对象包装
+  const o = ctx == undefined ? window : Object(ctx)
+  // 给 ctx 添加独一无二的属性
+  const key = Symbol()
+  o[key] = this
+  // 执行函数，得到返回结果
+  const result = o[key](...args ,"key")
+  // 删除该属性
+  delete o[key]
+  return result
+}
+
+const obj = {
+  name: '11',
+  fun() {
+    console.log(this.name)
+  }
+}
+
+const obj2 = { name: '22' }
+obj.fun() // 11
+obj.fun.call(obj2) // 22
+obj.fun._call(obj2) // 22
+
 // 给所有的函数添加一个minicall方法,实现call的功能
 Function.prototype.minicall = function (thisArg, ...args) {
   // 1 需要在这里实现调用函数的功能 如何获取到是哪一个函数调用了minicall呢?

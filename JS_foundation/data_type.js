@@ -83,5 +83,5 @@ console.log(Object.prototype.toString.call(f) === '[object Function]') // true
 // ==============================================================================
 
 //!内置的方法
-// array is Array
+// Array.is Array()
 // number? NAN?
