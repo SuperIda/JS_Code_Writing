@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-
-  <body>
-    <script>
-      // //----------------------------------Plan A
+// //----------------------------------Plan A
       // function curry(fn) {
       //     return function curried(...args) {
       //         //判断已接收参数与待接受参数数量是否相等,这里的apply必须使用this(解决测试用例二第一个打印的指向问题)
@@ -65,6 +54,3 @@
       // 下面两个结果是一样的
       console.log(fn.call({}, 1, 2, 3, 1)); // {}  7
       console.log(myfn.call({}, 1, 2, 3, 1)); // {}  7
-    </script>
-  </body>
-</html>

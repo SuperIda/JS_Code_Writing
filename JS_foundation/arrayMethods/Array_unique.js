@@ -1,3 +1,4 @@
+
 //! 简单值类型的数组去重
 const list1 = [1, 2, 3, 4, 5, 2, 3];
 
@@ -82,4 +83,77 @@ function unique6(array, key) {
 }
 // console.log(unique6(list2, "id"));
 
+
+const arr = [
+  1,
+  2,
+  2,
+  "abc",
+  "abc",
+  true,
+  true,
+  false,
+  false,
+  undefined,
+  undefined,
+  NaN,
+  NaN,
+];
+
+//! 利用Set()+Array.from()
+// const result = Array.from(new Set(arr))
+// console.log(result) // [ 1, 2, 'abc', true, false, undefined, NaN ]
+
+//! 利用数组的indexOf方法
+// function removeDuplicate(arr) {
+//   const newArr = []
+//   arr.forEach(item => {
+//     if (newArr.indexOf(item) === -1) {
+//       newArr.push(item)
+//     }
+//   })
+//   return newArr // 返回一个新数组
+// }
+
+// const result = removeDuplicate(arr)
+// console.log(result) // [ 1, 2, 'abc', true, false, undefined, NaN, NaN ]
+
+//! 利用数组的includes方法
+// function removeDuplicate(arr) {
+//   const newArr = []
+//   arr.forEach(item => {
+//     if (!newArr.includes(item)) {
+//       newArr.push(item)
+//     }
+//   })
+//   return newArr
+// }
+// const result = removeDuplicate(arr)
+// console.log(result) // [ 1, 2, 'abc', true, false, undefined, NaN ]
+
+//! 利用数组的filter()+indexOf()
+// function removeDuplicate(arr) {
+//   return arr.filter((item, index) => {
+//     return arr.indexOf(item) === index
+//   })
+// }
+// const result = removeDuplicate(arr)
+// console.log(result) // [ 1, 2, 'abc', true, false, undefined ]
+
+//! 利用Map()
+// function removeDuplicate(arr) {
+//   const map = new Map()
+//   const newArr = []
+
+//   arr.forEach(item => {
+//     if (!map.has(item)) { // has()用于判断map是否包为item的属性值
+//       map.set(item, true) // 使用set()将item设置到map中，并设置其属性值为true
+//       newArr.push(item)
+//     }
+//   })
+//   return newArr
+// }
+
+// const result = removeDuplicate(arr)
+// console.log(result) // [ 1, 2, 'abc', true, false, undefined, NaN ]
 
