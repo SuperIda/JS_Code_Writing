@@ -14,7 +14,7 @@ function DFS(node, nodeList=[]) {
   return nodeList;
 }
 
-// 方法二: 栈  后进先出
+// 方法二: 栈  先进后出
 function DFS2(node) {
   const stack = [];
   const nodeList = [];
